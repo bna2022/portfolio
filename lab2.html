@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Manipulation</title>
+</head>
+<body>
+    <div id="mainDiv">Text in HTML.</div>
+    <script>
+        function divWithText(text){
+            let div = document.createElement("div"); 
+            let textNode = document.createTextNode(text); 
+            div.appendChild(textNode);
+            return div; 
+        }
+
+        mainDiv = document.getElementById("mainDiv"); 
+
+        for(i=0; i<10; ++i){
+            mainDiv.appendChild(divWithText(String(i))); 
+        }
+    </script>
+    
+</body>
+</html>
