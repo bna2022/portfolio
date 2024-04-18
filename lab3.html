@@ -12,6 +12,20 @@
     <script src="https://d3js.org/d3.v7.min.js"></script>
 
     <script>
+
+        // Example: Adding text to a website 
+        d3.select("body").append("p").text("Hello World!");
+
+        // Example: Loop
+        const provinces = ['BY', 'BE', 'BB', 'HB', 'HH', 'HE', 'MV', 'NI', 'NW', 'RP', 'SL', 'SN'];
+
+        const p = d3.select('body').selectAll('p')
+            .data(provinces)
+            .enter()
+            .append('p')
+            .text(d => d);
+
+        // Sandwich Example 
         const sandwiches = [
             { name: "Thesis", price: 7.95, size: "large" },
             { name: "Dissertation", price: 8.95, size: "large" },
