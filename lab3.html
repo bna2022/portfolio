@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Einführung D3</title>
+
+</head>
+
+<body>
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+
+    <script>
+        const sandwiches = [
+            { name: "Thesis", price: 7.95, size: "large" },
+            { name: "Dissertation", price: 8.95, size: "large" },
+            { name: "Highlander", price: 6.50, size: "small" },
+            { name: "Just Tuna", price: 6.50, size: "small" },
+            { name: "So-La", price: 7.95, size: "large" },
+            { name: "Special", price: 12.50, size: "small" }
+        ];
+
+        // Add <svg> element (drawing space)
+        const svg = d3.select('body').append('svg')
+            .attr('width', 500)
+            .attr('height', 500);
+
+        // Add rectangle
+        svg.selectAll('circle')
+            .data(sandwiches)
+            .enter()
+            .append('circle')
+            .attr('fill', (d => {
+                if (d.price < 7)
+                    return 'blue'
+                else
+                    return 'orange'
+            }))
+            .attr('r', (d  => {
+                if (d.size =='large')
+                    return 20; 
+                else
+                    return 10;
+            }))
+            .attr('cy', 50)
+            .attr('cx', (d, index) => index * 50 + 20)
+            .attr('stroke', 'gray');
+    </script>
+</body>
+
+</html>
